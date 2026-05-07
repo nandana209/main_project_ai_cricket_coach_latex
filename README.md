@@ -44,3 +44,39 @@ LaTeX source for the project report on AI Cricket Coach — an AI-powered cricke
     ├── chapter9.aux
     ├── chapter9.tex
     ├── Appendix.tex
+```
+## Building the Document
+
+### Prerequisites
+- A LaTeX distribution (e.g., TeX Live or MiKTeX)
+- `xelatex` and `biber` available in your system PATH
+
+## Compile
+
+### Windows
+
+```bash
+xelatex -output-directory=logs -interaction=nonstopmode main.tex
+biber logs/main
+xelatex -output-directory=logs -interaction=nonstopmode main.tex
+xelatex -output-directory=logs -interaction=nonstopmode main.tex
+```
+
+### Linux/macOS
+
+```bash
+mkdir -p logs
+
+xelatex -output-directory=logs -interaction=nonstopmode main.tex
+
+biber logs/main
+
+xelatex -output-directory=logs -interaction=nonstopmode main.tex
+
+xelatex -output-directory=logs -interaction=nonstopmode main.tex
+
+mv -f logs/main.pdf .
+```
+
+## License
+This project report is intended for academic purposes only.
