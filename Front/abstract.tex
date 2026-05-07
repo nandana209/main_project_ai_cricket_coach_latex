@@ -1,0 +1,11 @@
+\vspace{-4.0\baselineskip}
+\textbf{\begin{center}
+		{\Large \textbf{ABSTRACT}}
+\end{center}}
+\vspace{-0.5\baselineskip}
+% \noindent\rule{\linewidth}{2pt}
+
+AI Cricket Coach is an AI-powered cricket batting analysis system designed to automatically classify batting shots and provide instant performance feedback using deep learning and computer vision techniques. A custom dataset of 8000+ labeled images was collected and categorized into four major batting shots along with an additional unknown category to improve model robustness. The images were preprocessed and used to train a YOLOv8 (You Only Look Once version 8) deep learning model in Google Colab, achieving high classification accuracy. The trained model is deployed on a Python Flask-based backend server, which performs real-time inference. An Android mobile application developed using CameraX and Retrofit captures the player’s batting image and sends it to the server through a client–server architecture. The server processes the image, predicts the shot category, generates an annotated output image, and returns the result in JSON format. The Android application then displays the prediction visually and provides audio feedback using Text-to-Speech.
+This system enhances training efficiency by offering automated, consistent, and quick feedback without relying entirely on manual observation. It reduces human error, improves accessibility to sports analytics, and demonstrates the practical integration of YOLOv8-based computer vision with mobile application development for intelligent sports performance analysis.
+
+\textbf{Index Terms:} Artificial Intelligence, Deep Learning, Computer Vision, Cricket Shot Classification, Android Application, Client–Server Architecture.
