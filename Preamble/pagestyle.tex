@@ -1,0 +1,79 @@
+% Required packages (add if not already included)
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage[table]{xcolor}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{longtable}
+\usepackage{listings}
+
+\lstset{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!60!black},
+	stringstyle=\color{red},
+	breaklines=true,
+	frame=single,
+	showstringspaces=false
+}
+
+\geometry{
+	a4paper,
+	top=35mm,         % Increased from 25mm to push content down
+	bottom=25mm,
+	left=30mm,
+	right=30mm
+}
+
+% Paragraph indentation
+\setlength{\parindent}{12.5mm}
+
+% Line spacing: 1.5 lines
+\onehalfspacing
+
+% Configure fancy header with watermark logo
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+
+% Watermark logo in header (semi-transparent, top right)
+\fancyhead[R]{%
+	\raisebox{5mm}[0pt][0pt]{%
+		\hspace*{5mm}%
+		\tikz\node[opacity=0.3] {\includegraphics[height=1.5cm]{Figures/PRCUpperLogo}};%
+	}%
+}
+
+% Footer configuration (page numbers - bottom centered)
+\fancyfoot[C]{\thepage}
+
+% No header/footer lines
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Fix headheight to prevent fancyhdr warning
+\setlength{\headheight}{15pt}
+\addtolength{\topmargin}{-15pt}
+\setlength{\headsep}{10pt}
+
+% Style for plain pages (chapter start pages)
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyhead[R]{%
+		\raisebox{5mm}[0pt][0pt]{%
+			\hspace*{5mm}%
+			\tikz\node[opacity=0.3] {\includegraphics[height=1.5cm]{Figures/PRCUpperLogo}};%
+		}%
+	}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
