@@ -1,0 +1,128 @@
+
+\documentclass[a4paper,12pt]{report}
+% !TEX program = xelatex
+
+\input{Preamble/pagestyle.tex}
+\input{Preamble/packages.tex}
+\input{Preamble/fonts.tex}
+\input{Preamble/sectionoptions.tex}
+\input{Preamble/macro.tex}
+\input{Front/glossarydefinition.tex}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{adjustbox}
+%\usepackage{epsfig}
+% siunitx already loaded above
+\usepackage{float}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{lipsum}
+\usepackage{bigints}
+\usepackage{acronym}
+\usepackage{appendix}
+\usepackage{setspace}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{thesisref.bib}   % your .bib file name
+
+\crefname{figure}{fig.}{figs.}
+\crefname{equation}{eq.}{eqs.}
+\captionsetup[figure]{name=Fig.,labelsep=period,labelfont=bf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+	%%%%%%%%%%%%%%%%%%%  Title page  %%%%%%%%%%%%%%%%%%% 
+	\pagenumbering{roman}     
+	\input{Front/titlepage.tex}                   
+	\clearpage
+
+	%%%%%%%%%%%%%%%%%%%  Certificate page %%%%%%%%%%%%%%%%%%% 
+	\phantomsection % To make the reference hyperlink correct in ToC
+	\addcontentsline{toc}{chapter}{Certificate} 
+	\input{Front/certificate.tex}  
+	\clearpage
+	%%%%%%%%%%%%%%%%%%  Declaration page %%%%%%%%%%%%%%%%%% 
+	\phantomsection % To make the reference hyperlink correct in ToC
+	\input{Front/declaration.tex}  
+	\clearpage
+	%%%%%%%%%%%%%%%%%%% Acknowledgement page %%%%%%%%%%%%%%%%%%% 
+	\phantomsection % To make the reference hyperlink correct in ToC
+	\addcontentsline{toc}{chapter}{Acknowledgement}
+	\input{Front/acknowledgment.tex}
+	\clearpage
+	%%%%%%%%%%%%%%%%%%% Abstract page %%%%%%%%%%%%%%%%%%% 
+	\phantomsection % To make the reference hyperlink correct in ToC
+	\addcontentsline{toc}{chapter}{Abstract}
+	\input{Front/abstract.tex}
+	\clearpage
+	%%%%%%%%%%%%%%%%%%% Table of contents %%%%%%%%%%%%%%%%%%% 
+	\tableofcontents
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%% Table of figures %%%%%%%%%%%%%%%%%%% 
+	% The List of Figures is produced with \listoffigures; you have to manually add it to the table of contents, so it should be preceded by \cleardoublepage in order to ensure that the page reference is correct. Uncomment the \phantomsection line if you're using hyperref
+	
+	\phantomsection % To make the reference link correct
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\listoffigures
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%% Table of tables %%%%%%%%%%%%%%%%%%% 
+	\phantomsection % To make the reference link correct
+	\addcontentsline{toc}{chapter}{List of Tables}
+	\listoftables
+	\clearpage
+	%%%%%%%%%%%%%%%%%%% Table of acroymns %%%%%%%%%%%%%%%%%%% 
+	\phantomsection % To make the reference link correct
+	\addcontentsline{toc}{chapter}{List of Acronyms}
+	\input{Front/LOA.tex}
+	%	\clearpage
+	%%%%%%%%%%%%%%%%%%% Table of symbols %%%%%%%%%%%%%%%%%%% 
+	\phantomsection % To make the reference link correct
+	\addcontentsline{toc}{chapter}{List of Symbols}
+	\input{Front/LOS.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%% Content Chapters %%%%%%%%%%%%%%
+	
+	\pagenumbering{arabic}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter-1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter1.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter-2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter2.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter-3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter3.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter-4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter4.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter-5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter5.tex}
+	\clearpage	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter-6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter6.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter-7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter7.tex}
+	\cleardoublepage
+	\addtocontents{toc}{\protect\newpage}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{chapters/chapter8.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\include{chapters/chapter9.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\addcontentsline{toc}{chapter}{Appendix}
+	\input{chapters/Appendix.tex}
+	\cleardoublepage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\printbibliography
+	%	\bibliographystyle{unsrt}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
