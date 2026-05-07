@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%% CHAPTER - 1 %%%%%%%%%%%%%%%%%%%%\\
+\chapter{Introduction}
+\label{C1} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{Figures/Chapter-1figs/PDF/}{Figures/Chapter-1figs/}}
+% \noindent\rule{\linewidth}{2pt}
+\onehalfspacing
+% \setlength{\parskip}{24pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Background} \label{S1.1}
+Cricket is one of the most widely followed and played sports
+across the world, where batting technique plays a decisive
+role in a player’s overall performance. A proper stance forms
+the foundation for balance, coordination, timing, and shot
+execution. Even minor technical errors in posture or foot
+positioning can significantly affect accuracy and consistency.
+Therefore, analyzing and improving batting technique is an
+essential part of cricket training. 
+
+Traditionally, batting analysis
+has been carried out manually by coaches through direct
+observation or recorded video review. Although experienced
+coaches can provide valuable insights, the process is often
+subjective and time-consuming. Feedback may vary depending
+on the observer’s expertise, and continuous monitoring of
+every player is not always feasible. Additionally, advanced
+video analysis systems can be expensive and are not easily
+accessible to all training environments.
+With the advancement of Artificial Intelligence (AI) and
+Computer Vision, automated performance analysis systems
+have gained significant attention in recent years. 
+
+Deep learning
+models, particularly YOLOv8 (You Only Look Once), have
+shown remarkable performance in real-time object detection
+and image classification tasks. These models can automatically
+learn complex visual features such as body posture, bat po-
+sition, and movement patterns from large datasets, while also
+enabling fast and efficient detection in real-time applications.
+
+In this project, a comprehensive dataset consisting of over
+8000 cricket batting images was used to train a deep learning
+model capable of classifying multiple types of batting shots.
+The dataset includes distinct shot categories as well as an
+additional unknown class to improve the system’s robustness
+and prevent incorrect classifications. Proper preprocessing
+techniques such as resizing, normalization, and augmentation
+were applied to enhance model performance and generaliza-
+tion.
+
+The trained model is deployed on a Python-based backend
+server, which performs real-time inference when an image is
+received. An Android mobile application acts as the client,
+capturing the player’s image using the device camera and
+sending it to the server through a client–server architecture.
+The server processes the image, detects and predicts the shot
+category, and returns the result along with a processed image
+for visualization. By integrating deep learning with mobile
+technology, this system provides instant visual and audio
+feedback to players, improving training efficiency and reduc-
+ing technical errors. The project demonstrates how AI-driven
+solutions can enhance sports analytics, making performance
+evaluation more consistent, accessible, and technology-driven
+in modern cricket training environments.
+
+\section{Problem statement} \label{S1.2}
+ Cricket batting training today still relies heavily on manual observation and subjective evaluation by human coaches. This traditional approach leads to several challenges:
+ 
+ \begin{itemize}
+ 	\item Lack of immediate and automated feedback during practice sessions.
+ 	\item Inconsistent analysis depending on the coach’s experience and expertise.
+ 	\item Difficulty in accurately classifying and quantifying different batting shots.
+ 	\item Time-consuming video review processes without intelligent automation.
+ 	\item Limited access to advanced performance analysis tools in many training environments.
+ 	\item Dependence on costly equipment or complex setups for detailed motion analysis.
+ \end{itemize}
+ 
+ Therefore, there is a strong need for a cost-effective, AI-powered cricket batting analysis system capable of automatically classifying shots, providing real-time feedback, and delivering consistent performance evaluation through an accessible mobile application.
+
+
+\section{Objectives} \label{S1.3} 
+
+The main objectives of the AI-Powered Cricket Batting Analysis System are:
+
+\begin{enumerate}
+	\item To Develop a Large-Scale Image Dataset:
+	To collect and organize a comprehensive dataset of 8000+ cricket batting images representing multiple shot categories along with an unknown class to ensure robust model training.
+	
+	\item To Perform Image Preprocessing and Augmentation:
+	To apply techniques such as resizing, normalization, and data augmentation (rotation, flipping, brightness adjustment) to improve model accuracy and generalization.
+	
+	\item To Design and Train a Deep Learning Model:
+	To build and train a You Only Look Once(YOLOv8) model in Google Colab capable of accurately classifying different cricket batting shots.
+	
+	\item To Implement an Unknown Shot Detection Mechanism:
+	To enable the system to identify and label unfamiliar or incorrect batting poses as “Unknown” to prevent misclassification.
+	
+	\item To Develop a Backend Server for Model Deployment:
+	To create a Python Flask-based server in VS Code that loads the trained model and performs real-time image inference.
+	
+	\item To Build an Android Client Application:
+	To design and develop an Android application using CameraX and Retrofit that captures player images and communicates with the backend server through a client–server architecture.
+	
+	\item To Provide Real-Time Visual and Audio Feedback:
+	To display predicted shot results along with processed image overlays and deliver voice feedback using Text-to-Speech for improved user interaction.
+	
+	\item To Create a Cost-Effective and Accessible Coaching Tool:
+	To design a scalable and user-friendly system that makes AI-powered cricket training accessible without the need for expensive hardware or complex motion-tracking equipment.
+\end{enumerate}
+
+
+\section{Scope of Study} \label{S1.4}
+
+The scope of this project focuses on developing an AI-powered cricket batting analysis system that can automatically classify different batting shots from captured images and provide real-time feedback through a mobile application. The system is designed to work within a client–server architecture, where the Android application captures images and the backend server performs deep learning–based prediction.
+
+The project covers the collection and preprocessing of a large dataset of 8000+ images representing multiple batting shot categories along with an unknown class. It includes model training using deep learning techniques, deployment of the trained model on a Flask-based server, and integration with an Android application for practical use.
+
+This system is primarily intended for training and educational purposes, helping players improve their batting technique through automated analysis. It can be used in cricket academies, schools, and individual practice sessions. The project demonstrates the practical application of Artificial Intelligence, Computer Vision, and mobile development in sports analytics.
+
+In the future, the scope can be extended to real-time video analysis, additional shot categories, player performance tracking, cloud deployment, and integration with advanced pose estimation systems to provide more detailed biomechanical feedback.
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

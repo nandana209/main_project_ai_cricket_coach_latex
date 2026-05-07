@@ -1,0 +1,153 @@
+%%%%%%%%%%%%%%%%%%%%%%% CHAPTER - 7 %%%%%%%%%%%%%%%%%%%%\\
+\chapter{Testing}
+\label{C7} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\graphicspath{{Figures/Chapter-6figs/PDF/}{Figures/Chapter-6figs/}}
+% \noindent\rule{\linewidth}{2pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Testing} \label{S7.1}
+
+Testing is the process used to evaluate a software product's usability, efficiency, and 
+quality to make sure that it complies with the criteria and specifications laid down for 
+it in the frame of software development. In order to find bugs, failures, or other 
+problems that can impair the software's operation, usability, or performance, testing 
+often entails running the program under a variety of circumstances and input 
+circumstances. Testing is a crucial step in the development of software because it 
+enables the detection and correction of any problems or flaws before the product is 
+made available to consumers. Unit testing, integration testing, system testing, 
+acceptance testing, and regression testing are just a few of the several forms of testing 
+that may be done. Each kind of testing has a particular function and is created to handle 
+particular faces of the software development process.
+
+\subsection{Types of Testing}
+
+Various types of testing can be carried out while developing software. Here are a few 
+of the most typical: 
+
+\textbf{\textit{Unit Testing:-}} This is the process of checking that individual software program units 
+or components function as planned.
+
+\textbf{\textit{Integration Testing:-}} This entails evaluating how various parts or units of a software 
+program interact with one another to make sure they are compatible and perform as 
+intended. 
+
+\textbf{\textit{System Testing:-}} This entails testing the entire system to make sure it complies with 
+the guidelines and standards established for it. 
+
+\textbf{\textit{Acceptance Testing:-}} In preparation for a software product being made available to 
+users, this is the last phase of testing. To make sure the program satisfies the user's 
+needs, it must be tested in a setting similar to a production one. 
+
+\textbf{\textit{Regression Testing:-}} Retesting a software program after modifications have been made 
+is necessary to make sure that no new defects or problems were created by the changes. 
+
+\textbf{\textit{Performance Testing:-}} This entails testing the software to make sure it operates 
+effectively under real-world or hypothetical pressures. 
+
+\textbf{\textit{Security Testing:-}} Testing the software is necessary to find any flaws or vulnerabilities 
+that an attacker could use against it. 
+
+\textbf{\textit{Usability Testing:-}} This entails evaluating the software to make sure that its intended 
+users would find it simple to use and understand. 
+
+\textbf{\textit{Compatibility Testing:-}} To make sure it works in all intended environments, this 
+requires testing the software program on various hardware, software, and operating 
+system configurations. 
+
+\textbf{\textit{Exploratory Testing:-}} This entails testing the software application without following a 
+predetermined test strategy with the intention of identifying fresh and unexpected flaws.
+
+\subsection{Test Summary Report}
+
+\begin{table}[H]
+	\centering
+	\caption{Decision Based Testing}
+	\renewcommand{\arraystretch}{0.9}
+	\begin{tabular}{|l|l|c|c|c|c|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{MODULE UNDER TEST: AI Cricket Coach – Shot Detection}} & 
+		\multicolumn{4}{c|}{\textcolor{red}{\textbf{RULES}}} \\ \hline
+		
+		\multirow{3}{*}{\textbf{CONDITIONS}}
+		& When a batting shot is detected 
+		& \cellcolor{green!60!black}T & \cellcolor{green!60!black}T & \cellcolor{red!90}F & \cellcolor{red!90}F \\ \cline{2-6}
+		
+		& When the accuracy of the detection is >= 90 
+		& \cellcolor{green!60!black}T & \cellcolor{red!90}F & \cellcolor{red!90}F & \cellcolor{red!90}F \\ \cline{2-6}
+		
+		& When stance/pose is unknown 
+		& \cellcolor{red!90}F & \cellcolor{red!90}F & \cellcolor{red!90}F & \cellcolor{green!60!black}T \\ \hline
+		
+		\multirow{5}{*}{\textbf{ACTIONS}}
+		& Display Shot Name 
+		& {\color{green!60!black}\checkmark} &  &  &  \\ \cline{2-6}
+		
+		& Display Confidence Score 
+		& {\color{green!60!black}\checkmark} & {\color{green!60!black}\checkmark} &  &  \\ \cline{2-6}
+		
+		& Announce Shot Name (Audio) 
+		& {\color{green!60!black}\checkmark} &  &  &  \\ \cline{2-6}
+		
+		& Display Pose Keypoints and Skeleton Lines
+		& {\color{green!60!black}\checkmark} & {\color{green!60!black}\checkmark} &  &  \\ \cline{2-6}
+			
+		& Display ``No Shot Detected'' 
+		&  &  & {\color{green!60!black}\checkmark} &  \\ \cline{2-6}
+		
+		& Display ``Unknown Stance'' 
+		&  &  &  & {\color{green!60!black}\checkmark} \\ \cline{2-6}
+		
+		& Announce ``Unknown Stance'' 
+		&  &  &  & {\color{green!60!black}\checkmark} \\ \hline
+		
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\caption{Test Cases for Detection Module}
+	\renewcommand{\arraystretch}{1.2}
+	\setlength{\tabcolsep}{1.0pt}
+	\begin{tabular}{|c|p{2.0cm}|p{2.5cm}|p{3.5cm}|p{3.5cm}|c|}
+		\hline
+		\rowcolor[gray]{0.85}
+		\textbf{Test Case Id} & \textbf{Function Under Test} & \textbf{Input} & 
+		\textbf{Expected Output} & \textbf{Actual Output} & \textbf{Pass/Fail} \\
+		\hline
+		
+		TC-01 & Detection Module & Shot:Straight Drive &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		\textcolor{green!60!black}{Pass} \\
+		\hline
+		
+		TC-02 & Detection Module & Shot:Pull Shot &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		\textcolor{green!60!black}{Pass} \\
+		\hline
+		
+		TC-03 & Detection Module & Shot:Cut Shot &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		\textcolor{green!60!black}{Pass} \\
+		\hline
+		
+		TC-04 & Detection Module & Shot:Sweep &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		Display Shot Name, Display Confidence Score, Announce Shot Name, Display Pose Keypoints \& Skeleton Lines &
+		\textcolor{green!60!black}{Pass} \\
+		\hline
+		
+		TC-05 & Detection Module & Unknown Stance &
+		Display ``Unknown Stance'' &
+		Display ``Unknown Stance'' &
+		\textcolor{green!60!black}{Pass} \\
+		\hline
+		
+		TC-06 & Detection Module & No Person in Frame &
+		Display ``No Shot Detected'' &
+		Display ``No Shot Detected'' &
+		\textcolor{green!60!black}{Pass} \\
+		\hline
+		
+	\end{tabular}
+\end{table}

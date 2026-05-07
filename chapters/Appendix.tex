@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%% APPENDIX-1 %%%%%%%%%%%%%%%%%%%%\\
+\label{A1} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{Figures/Appendixfigs/PDF/}{Figures/Appendixfigs/}}
+% \noindent\rule{\linewidth}{2pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%	\renewcommand{\thechapter}{AI\Roman{chapter}}
+	\renewcommand{\thetable}{A\thechapter.\arabic{table}}
+	\renewcommand{\thefigure}{A\thechapter.\arabic{figure}}
+	\renewcommand{\theequation}{A\thechapter.\arabic{equation}}
+\chapter*{Appendix}
+	\textbf{\begin{center}
+		{\Huge \textbf{Sample Codes}}
+\end{center}}
+
+\textbf{Python Code}
+
+\begin{lstlisting}
+	import os
+	import pickle
+	from ultralytics import YOLO
+	from django.conf import settings
+	import xgboost as xgb  # Required to load the model
+	
+	# 1. Load YOLO (Heavy model, load once)
+	print("Loading YOLO Pose Model...")
+	POSE_MODEL = YOLO('yolov8m-pose.pt')
+	
+	# 2. Load the XGBoost Classifier
+	MODEL_PATH = os.path.join(settings.BASE_DIR, 'prediction', 'cricket_model.pkl')
+	
+	STANCE_CLASSIFIER = None
+	LABEL_ENCODER = None
+	
+	if os.path.exists(MODEL_PATH):
+	print(f"Loading XGBoost model from: {MODEL_PATH}")
+	try:
+	with open(MODEL_PATH, 'rb') as f:
+	data = pickle.load(f)
+	
+	# Unpack the dictionary from the training script
+	STANCE_CLASSIFIER = data['model']
+	LABEL_ENCODER = data['le']
+	print("XGBoost Model & Encoder Loaded Successfully!")
+	
+	except Exception as e:
+	print(f"Error loading model: {e}")
+	print("Hint: Did you run 'pip install xgboost'?")
+	
+	else:
+	print(f"Model file not found at {MODEL_PATH}")
+\end{lstlisting}
+\textbf{Java Code}
+\begin{lstlisting}
+	import os
+	import pickle
+	from ultralytics import YOLO
+	from django.conf import settings
+	import xgboost as xgb  # Required to load the model
+	
+	# 1. Load YOLO (Heavy model, load once)
+	print("Loading YOLO Pose Model...")
+	POSE_MODEL = YOLO('yolov8m-pose.pt')
+	
+	# 2. Load the XGBoost Classifier
+	MODEL_PATH = os.path.join(settings.BASE_DIR, 'prediction', 'cricket_model.pkl')
+	
+	STANCE_CLASSIFIER = None
+	LABEL_ENCODER = None
+	
+	if os.path.exists(MODEL_PATH):
+	print(f"Loading XGBoost model from: {MODEL_PATH}")
+	try:
+	with open(MODEL_PATH, 'rb') as f:
+	data = pickle.load(f)
+	
+	# Unpack the dictionary from the training script
+	STANCE_CLASSIFIER = data['model']
+	LABEL_ENCODER = data['le']
+	print("XGBoost Model & Encoder Loaded Successfully!")
+	
+	except Exception as e:
+	print(f"Error loading model: {e}")
+	print("Hint: Did you run 'pip install xgboost'?")
+	
+	else:
+	print(f"Model file not found at {MODEL_PATH}")
+\end{lstlisting}
+
